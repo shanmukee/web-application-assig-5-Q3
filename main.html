@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Calculator</title>
+</head>
+<body>
+
+<h2>JavaScript Calculator</h2>
+
+<input type="number" id="num1" placeholder="Enter number">
+
+<select id="operation">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+</select>
+
+<input type="number" id="num2" placeholder="Enter number">
+
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function calculate() {
+    var a = document.getElementById("num1").value;
+    var b = document.getElementById("num2").value;
+    var op = document.getElementById("operation").value;
+
+    a = Number(a);
+    b = Number(b);
+
+    var res = 0;
+
+    if (op === "+") {
+        res = a + b;
+    } 
+    else if (op === "-") {
+        res = a - b;
+    } 
+    else if (op === "*") {
+        res = a * b;
+    } 
+    else if (op === "/") {
+        if (b === 0) {
+            document.getElementById("result").innerHTML = "Division by zero not allowed";
+            return;
+        }
+        res = a / b;
+    }
+
+    document.getElementById("result").innerHTML = "Result: " + res;
+}
+</script>
+
+</body>
+</html>
